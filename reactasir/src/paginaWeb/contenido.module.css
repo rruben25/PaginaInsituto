@@ -1,0 +1,43 @@
+main{
+    background-color:greenyellow;
+    height:500px;
+    width:100%;
+    display:flex;
+    flex:row nowrap;
+}
+
+main section{
+    width:80%;
+    background-color:rgb(117, 236, 245);
+    
+}
+
+main aside{
+    width:20%;
+    background-color:rgb(31, 155, 238);
+}
+
+nav{
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+
+    a{
+        font-size: 2em;
+        color:white;
+    }
+    background-color:rgb(13, 179, 245);
+    
+}
+
+
+
+@media (max-width:800px){
+    aside{
+        display:none;
+    }
+    main section{
+        width:100%;
+    }
+
+  }
