@@ -1,36 +1,45 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import React, { useState, useEffect } from 'react';
 import heroes from './heroes.json';
 
-export default function BasicSelect() {
-  const [selectedHero, setSelectedHero] = React.useState('');
+function MarvelHeroSelector() {
+  const [marvelHeroes, setMarvelHeroes] = useState([]);
+  const [selectedHero, setSelectedHero] = useState(null);
 
-  const handleChange = (event) => {
-    setSelectedHero(event.target.value);
+  useEffect(() => {
+    const filteredHeroes = heroes.filter(hero => hero.publisher === "Marvel Comics");
+    setMarvelHeroes(filteredHeroes);
+  }, []);
+
+  const handleSelectHero = (event) => {
+    const heroName = event.target.value;
+    const hero = marvelHeroes.find(h => h.superhero === heroName);
+    setSelectedHero(hero || null);
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="hero-select-label">HEROES</InputLabel>
-        <Select
-          labelId="hero-select-label"
-          id="hero-select"
-          value={selectedHero}
-          label="HEROES"
-          onChange={handleChange}
-        >
-          {heroes.map((hero) => (
-            <MenuItem key={hero.superhero} value={hero.superhero}>
-              {hero.superhero}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </Box>
+    <div>
+      <h1>Seleccione un Superhéroe </h1>
+      
+      <select onChange={handleSelectHero} defaultValue="">
+        <option value="">Selecciona</option>
+        {marvelHeroes.map(hero => (
+          <option key={hero.superhero} value={hero.superhero}>
+            {hero.superhero}
+          </option>
+        ))}
+      </select>
+
+      {selectedHero && (
+        <div>
+          <h2>Detalles del Superhéroe</h2>
+          <p><strong>Superhéroe:</strong> {selectedHero.superhero}</p>
+          <p><strong>Alter Ego:</strong> {selectedHero.alter_ego}</p>
+          <p><strong>Primera Aparición:</strong> {selectedHero.first_appearance}</p>
+          <p><strong>Personajes:</strong> {selectedHero.characters}</p>
+        </div>
+      )}
+    </div>
   );
 }
+
+export default MarvelHeroSelector;
