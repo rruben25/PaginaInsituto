@@ -4,7 +4,7 @@ import style from './header.module.css'
 function Header() {
   return (
     <header className={style.cabecera}>
-        <h1>PRUEBA 256</h1>
+        <h1>LA TRINI BRUM BRUM</h1>
     </header>
   )
 }
