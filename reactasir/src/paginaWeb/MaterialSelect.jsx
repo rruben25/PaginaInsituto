@@ -18,10 +18,10 @@ function MarvelHeroSelector() {
 
   return (
     <div>
-      <h1>Seleccione un Superhéroe de la siguientes opciones </h1>
+      <h1>Seleccione un Superhéroe  </h1>
       
       <select onChange={handleSelectHero} defaultValue="">
-        <option value="">Selecciona</option>
+        <option value="">Selecciona Superheroe</option>
         {marvelHeroes.map(hero => (
           <option key={hero.superhero} value={hero.superhero}>
             {hero.superhero}
