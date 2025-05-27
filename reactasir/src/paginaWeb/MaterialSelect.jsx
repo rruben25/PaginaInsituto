@@ -18,7 +18,7 @@ function MarvelHeroSelector() {
 
   return (
     <div>
-      <h1>Seleccione un Superhéroe </h1>
+      <h1>Seleccione un Superhéroe de la siguientes opciones </h1>
       
       <select onChange={handleSelectHero} defaultValue="">
         <option value="">Selecciona</option>
