@@ -4,7 +4,7 @@ import style from './header.module.css'
 function Header() {
   return (
     <header className={style.cabecera}>
-        <h1>PAGINA WEB </h1>
+        <h1>PROYECTO HLC </h1>
     </header>
   )
 }
